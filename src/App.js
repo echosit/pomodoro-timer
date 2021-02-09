@@ -1,4 +1,4 @@
-import PomodoroTimer from "./Components/PomodoroTimer";
+import PomodoroTimer from "./components/PomodoroTimer";
 
 function App() {
   return (
