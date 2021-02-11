@@ -3,21 +3,30 @@ import React, { useState, useEffect } from 'react';
 export default function Timer() {
 // useState Hook to set default value of seconds to 0
   const [seconds, setSeconds] = useState(0);
+  const [start, setStart] = useState(false);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setSeconds((prev) => prev + 1);
-    }, 1000);
-
+    let interval = null;
+    if (start) {
+      interval = setInterval(() => {
+        setSeconds(seconds => seconds + 1);
+      }, 1000);
+    } else if (!start && seconds !== 0){
+      clearInterval(interval);
+    }
     return () => {
-      clearInterval(intervalId);
+      clearInterval(interval);
     };
-  }, []);
+  }, [start, seconds]);
+
+  function handleClick() {
+    setStart(!start);
+  }
 
   return (
     <div>
       <h1>{seconds} Seconds</h1>
-      <button>Start Timer</button>
+      <button onClick={handleClick}>Start Timer</button>
     </div>
   );
 }
