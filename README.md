@@ -4,6 +4,8 @@ This repository is still a work in progress. This is a pomodoro timer applicatio
 
 ## Concepts Used
 
+- Create React App
 - JSX
 - useState and useEffect Hooks
 - setInterval JavaScript Method
+- JavaScript Event Handler onClick

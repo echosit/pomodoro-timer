@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Timer() {
-// useState Hook to set default value of seconds to 0
+// useState Hook to set default value of seconds to 0 and start to false
   const [seconds, setSeconds] = useState(0);
   const [start, setStart] = useState(false);
 
