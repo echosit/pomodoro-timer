@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Timer() {
-// useState Hook to set default value of seconds to 0 and start to false
   const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(0);
   const [start, setStart] = useState(false);
+  const [button, setButton] = useState("Start");
 
   useEffect(() => {
     let interval = null;
@@ -11,8 +12,10 @@ export default function Timer() {
       interval = setInterval(() => {
         setSeconds(seconds => seconds + 1);
       }, 1000);
+      setButton("Pause");
     } else if (!start && seconds !== 0){
       clearInterval(interval);
+      setButton("Start");
     }
     return () => {
       clearInterval(interval);
@@ -25,8 +28,8 @@ export default function Timer() {
 
   return (
     <div>
-      <h1>{seconds} Seconds</h1>
-      <button onClick={handleClick}>Start Timer</button>
+      <h1>{minutes}:{seconds} Seconds</h1>
+      <button onClick={handleClick}>{button}</button>
     </div>
   );
 }
