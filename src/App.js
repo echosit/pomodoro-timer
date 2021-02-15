@@ -1,9 +1,9 @@
-import PomodoroTimer from "./components/PomodoroTimer";
+import Timer from "./components/Timer";
 
 function App() {
   return (
     <div>
-      <PomodoroTimer />
+      <Timer />
     </div>
   );
 }
