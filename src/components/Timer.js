@@ -6,6 +6,7 @@ export default function Timer() {
   const [hours, setHours] = useState(0);
   const [start, setStart] = useState(false);
   const [button, setButton] = useState("Start");
+  const [pomodoroTracker, setpomodoroTracker] = useState(0);
 
   //add 1 to seconds after second
   useEffect(() => {
@@ -13,7 +14,7 @@ export default function Timer() {
     if (start) {
       interval = setInterval(() => {
         setSeconds(seconds => seconds + 1);
-      }, 1000);
+      }, 1);
       setButton("Pause"); //set button to pause when timer is running
     } else if (!start && seconds !== 0){
       clearInterval(interval); //pause timer
@@ -46,11 +47,14 @@ export default function Timer() {
     setMinutes(0); //sets minutes 
     setStart(false); //stops timer
     setButton("Start"); //button is on Start
+    setpomodoroTracker(pomodoroTracker => pomodoroTracker + 1); //add 1 to pomodoroTracker
   } 
+
   
   return (
     <div>
       <h1>Pomodoro: {pomodoro} minutes</h1>
+      <p>You have Completed {pomodoroTracker} Pomodoros</p>
       <h1>{ hours < 10 && '0' }{hours}:{ minutes < 10 && '0' }{minutes}:{ seconds < 10 && '0' }{seconds}</h1>
       <button onClick={handleClick}>{button}</button>
     </div>
