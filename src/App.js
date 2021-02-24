@@ -1,10 +1,10 @@
-import { Input } from "./components/Input";
+// import { Input } from "./components/Input";
 import Timer from "./components/Timer";
 
 function App() {
   return (
     <div>
-      <Input />
+     {/* <Input /> */} 
       <Timer />
     </div>
   );

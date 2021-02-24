@@ -40,8 +40,17 @@ export default function Timer() {
     setHours(hours + 1);
   }
 
+  //Pomodoro Time Interval
+  let pomodoro = 20;  
+  if (minutes === pomodoro) {
+    setMinutes(0); //sets minutes 
+    setStart(false); //stops timer
+    setButton("Start"); //button is on Start
+  } 
+  
   return (
     <div>
+      <h1>Pomodoro: {pomodoro} minutes</h1>
       <h1>{ hours < 10 && '0' }{hours}:{ minutes < 10 && '0' }{minutes}:{ seconds < 10 && '0' }{seconds}</h1>
       <button onClick={handleClick}>{button}</button>
     </div>
