@@ -15,3 +15,9 @@ This repository is still a work in progress. This is a pomodoro timer applicatio
 - useState and useEffect Hooks
 - setInterval JavaScript Method
 - React forms
+
+## Tools
+
+- ReactJS
+- JavaScript
+- HTML, CSS
