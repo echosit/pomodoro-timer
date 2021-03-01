@@ -6,7 +6,7 @@ This repository is still a work in progress. This is a pomodoro timer applicatio
 
 - Pause and start timer
 - Timer resets after one Pomodoro
-- Tracks number of Pomodoros completed
+- Tracks number of Pomodoros completed and total focus time
 
 ## Concepts Used
 
