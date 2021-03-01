@@ -36,6 +36,7 @@ export default function Timer() {
   if (seconds === 60) {
     setSeconds(0);
     setMinutes(minutes + 1); 
+    setFocusTime(minutes => minutes + 1); //make focusTime equal to minutes and add one every minute
   }
   //Reset value of minutes to 0 after 60 and add 1 to hours
   if (minutes === 60) {
