@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Timer() {
+export default function Timer(props) {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [hours, setHours] = useState(0);
@@ -44,18 +44,20 @@ export default function Timer() {
     setHours(hours + 1); 
   }
 
-  //Pomodoro Time Interval
-  let pomodoro = 20;  
+  //Pomodoro Time Interval 
+  let pomodoro = props.pomodoro; //set the value of pomodoro from input component
   if (minutes === pomodoro) {
     setMinutes(0); //sets minutes 
     setStart(false); //stops timer
     setButton("Start"); //button is on Start
     setPomodoroTracker(pomodoroTracker => pomodoroTracker + 1); //add 1 to pomodoroTracker
   } 
+
+  console.log(props.pomodoro);
   
   return (
     <div>
-      <h1>Pomodoro: {pomodoro} minutes</h1>
+      <h1>{pomodoro} { pomodoro < 1 && '0' } minute{ pomodoro > 1 && 's' }</h1>
       <p>You have Completed {pomodoroTracker} Pomodoros</p>
       <p>Total Time Worked: {focusTime} Minutes</p>
       <h1>{ hours < 10 && '0' }{hours}:{ minutes < 10 && '0' }{minutes}:{ seconds < 10 && '0' }{seconds}</h1>

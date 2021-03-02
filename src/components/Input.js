@@ -1,4 +1,5 @@
-/* import React from 'react';
+import React from 'react';
+import Timer from './Timer';
 
 export class Input extends React.Component {
   constructor(props) {
@@ -16,10 +17,9 @@ export class Input extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.state.userInput} { this.state.userInput < 1 && '0' } minute{ this.state.userInput > 1 && 's' } </h1>
+        <Timer pomodoro={this.state.userInput}/> {/* Set props.pomodoro to input value */}
         <input type="number" onChange={this.handleUserInput} value={this.state.userInput} />
       </div>
     );
   }
 }
-*/
