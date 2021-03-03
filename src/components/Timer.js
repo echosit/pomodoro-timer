@@ -45,8 +45,7 @@ export default function Timer(props) {
   }
 
   //Pomodoro Time Interval 
-  let pomodoro = props.pomodoro; //set the value of pomodoro from input component
-  if (minutes === pomodoro) {
+  if (minutes === props.pomodoro) {
     setMinutes(0); //sets minutes 
     setStart(false); //stops timer
     setButton("Start"); //button is on Start
@@ -57,7 +56,7 @@ export default function Timer(props) {
   
   return (
     <div>
-      <h1>{pomodoro} { pomodoro < 1 && '0' } minute{ pomodoro > 1 && 's' }</h1>
+      <h1>{props.pomodoro} { props.pomodoro < 1 && '0' } minute{ props.pomodoro > 1 && 's' }</h1>
       <p>You have Completed {pomodoroTracker} Pomodoros</p>
       <p>Total Time Worked: {focusTime} Minutes</p>
       <h1>{ hours < 10 && '0' }{hours}:{ minutes < 10 && '0' }{minutes}:{ seconds < 10 && '0' }{seconds}</h1>
