@@ -5,20 +5,32 @@ export class Input extends React.Component {
   constructor(props) {
     super(props);
     
-    this.state = { userInput: 25 }; //default value of input to 25
-    
-    this.handleUserInput = this.handleUserInput.bind(this);
+    //Minutes Input
+    this.state = { userMinutesInput: 25 }; //default value of input to 25
+    this.handleUserMinutesInput = this.handleUserMinutesInput.bind(this);
+
+    //Hours Input
+    this.state = { userHoursInput: 0 }; //default value of input to 0
+    this.handleUserHoursInput = this.handleUserHoursInput.bind(this);
+
   }
   
-  handleUserInput(e) {
-    this.setState({userInput: e.target.value});
+  /////change state with input value///////
+  //Minutes Input
+  handleUserMinutesInput(e) {
+    this.setState({userMinutesInput: e.target.value});
+  }
+  //Hours Input
+  handleUserHoursInput(e) {
+    this.setState({userHoursInput: e.target.value});
   }
 
   render() {
     return (
       <div>
-        <input type="number" onChange={this.handleUserInput} value={this.state.userInput} max={60} min={1}/>
-        <Timer pomodoro={this.state.userInput}/> {/* Set props.pomodoro to input value */}
+        <input type="number" onChange={this.handleUserHoursInput} value={this.state.userHoursInput} max={59} min={0} />
+        <input type="number" onChange={this.handleUserMinutesInput} value={this.state.userMinutesInput} max={59} min={1} />
+        <Timer pomodoro={this.state.userMinutesInput}/> {/* Set props.pomodoro to input value */}
       </div>
     );
   }

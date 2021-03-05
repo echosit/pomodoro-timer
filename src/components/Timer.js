@@ -51,8 +51,6 @@ export default function Timer(props) {
     setButton("Start"); //button is on Start
     setPomodoroTracker(pomodoroTracker => pomodoroTracker + 1); //add 1 to pomodoroTracker
   } 
-
-  console.log(props.pomodoro);
   
   return (
     <div>
