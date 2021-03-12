@@ -5,13 +5,13 @@ export class Input extends React.Component {
   constructor(props) {
     super(props);
     
-    //Minutes Input
-    this.state = { userMinutesInput: 25 }; //default value of input to 25
-    this.handleUserMinutesInput = this.handleUserMinutesInput.bind(this);
-
     //Hours Input
     this.state = { userHoursInput: 0 }; //default value of input to 0
     this.handleUserHoursInput = this.handleUserHoursInput.bind(this);
+
+    //Minutes Input
+    this.state = { userMinutesInput: 25 }; //default value of input to 25
+    this.handleUserMinutesInput = this.handleUserMinutesInput.bind(this);
 
   }
   
@@ -30,7 +30,7 @@ export class Input extends React.Component {
       <div>
         <input type="number" onChange={this.handleUserHoursInput} value={this.state.userHoursInput} max={59} min={0} />
         <input type="number" onChange={this.handleUserMinutesInput} value={this.state.userMinutesInput} max={59} min={1} />
-        <Timer pomodoro={this.state.userMinutesInput}/> {/* Set props.pomodoro to input value */}
+        <Timer pomodoroMinutes={this.state.userMinutesInput} pomodoroHours={this.state.userHoursInput}/> {/* Set props.pomodoro to input value */}
       </div>
     );
   }

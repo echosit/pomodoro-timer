@@ -45,7 +45,7 @@ export default function Timer(props) {
   }
 
   //Pomodoro Time Interval 
-  if (minutes === props.pomodoro) {
+  if (minutes === props.pomodoroMinutes) {
     setMinutes(0); //sets minutes 
     setStart(false); //stops timer
     setButton("Start"); //button is on Start
@@ -54,7 +54,7 @@ export default function Timer(props) {
   
   return (
     <div>
-      <h1>{props.pomodoro} { props.pomodoro < 1 && '0' } minute{ props.pomodoro > 1 && 's' }</h1>
+      <h1>{props.pomodoroHours} hour{ props.pomodoroHours > 1 && 's' } {props.pomodoroMinutes} { props.pomodoroMinutes < 1 && '0' } minute{ props.pomodoroMinutes > 1 && 's' }</h1>
       <p>You have Completed {pomodoroTracker} Pomodoros</p>
       <p>Total Time Worked: {focusTime} Minutes</p>
       <h1>{ hours < 10 && '0' }{hours}:{ minutes < 10 && '0' }{minutes}:{ seconds < 10 && '0' }{seconds}</h1>
